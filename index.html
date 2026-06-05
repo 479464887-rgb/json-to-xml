@@ -40,7 +40,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);
     <h2>Tool</h2>
     <div id="tool-area">
       <label class="label">Input</label>
-      <textarea id="input" rows="6" placeholder="Type or paste here..."></textarea>
+      <textarea id="input" rows="8" placeholder="{&quot;root&quot;:{&quot;name&quot;:&quot;John&quot;,&quot;age&quot;:30}}"></textarea>
       <button class="btn" onclick="process()" style="margin-top:8px;">Convert</button>
       <label class="label" style="margin-top:12px;">Output</label>
       <textarea id="output" rows="6" readonly></textarea>
@@ -53,9 +53,10 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);
   © 2026 DevKit Tools
 </div>
 <script>
-function process() {
+function jsonToXml(obj,root="root"){let x="<"+root+">";for(const[k,v]of Object.entries(obj)){if(typeof v==="object"&&v!==null){x+=jsonToXml(v,k)}else{x+="<"+k+">"+v+"</"+k+">"}}x+="</"+root+">";return x}
+function process(){try{const j=JSON.parse(document.getElementById("input").value);document.getElementById("output").value=jsonToXml(j)}catch(e){document.getElementById("output").value="Invalid JSON: "+e.message}}
   const v = document.getElementById('input').value;
-  document.getElementById('output').value = v ? 'Processing... (full feature coming soon)' : '';
+  document.getElementById('output').value = ;
 }
 </script>
 </body>
