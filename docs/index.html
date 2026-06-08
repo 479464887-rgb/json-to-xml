@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="description" content="Convert JSON to XML format. Bidirectional conversion with validation.">
 <meta name="keywords" content="json to xml, json converter, xml generator, data format">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y=".9em" font-size='90'>🛠</text></svg>">
 <title>JSON to XML — DevKit Tools</title>
 <style>
 :root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#c9d1d9;--text2:#8b949e;--accent:#58a6ff;--radius:6px;}
@@ -26,7 +28,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);
 .footer{text-align:center;padding:24px;color:var(--text2);font-size:12px;border-top:1px solid var(--border);}
 .footer a{color:var(--accent);text-decoration:none;}
 .label{display:block;font-size:12px;color:var(--text2);margin-bottom:4px;font-weight:500;}
-</style>
+*:focus-visible{outline:2px solid #58a6ff;outline-offset:2px}::selection{background:rgba(88,166,255,0.3);color:#fff}</style>
 </head>
 <body>
 <div class="header">
@@ -53,6 +55,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);
   © 2026 DevKit Tools
 </div>
 <script>
+'use strict';
 function jsonToXml(obj,root="root"){let x="<"+root+">";for(const[k,v]of Object.entries(obj)){if(typeof v==="object"&&v!==null){x+=jsonToXml(v,k)}else{x+="<"+k+">"+v+"</"+k+">"}}x+="</"+root+">";return x}
 function process(){try{const j=JSON.parse(document.getElementById("input").value);document.getElementById("output").value=jsonToXml(j)}catch(e){document.getElementById("output").value="Invalid JSON: "+e.message}}
   const v = document.getElementById('input').value;
