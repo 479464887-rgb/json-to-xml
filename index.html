@@ -10,7 +10,14 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠</text></svg>">
 
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠</text></svg>">
+<meta name="theme-color" content="#0d1117">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta property="og:title" content="JSON to XML — DevKit Tools">
+<meta property="og:description" content="Convert JSON to XML format. Bidirectional conversion with validation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://479464887-rgb.github.io/json-to-xml/">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Convert JSON to XML format. Bidirectional conversion with validation.">
 <meta name="keywords" content="json to xml, json converter, xml generator, data format">
 <title>JSON to XML — DevKit Tools</title>
@@ -70,6 +77,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);
   © 2026 DevKit Tools
 </div>
 <script>
+'use strict';
 function jsonToXml(obj,root="root"){let x="<"+root+">";for(const[k,v]of Object.entries(obj)){if(typeof v==="object"&&v!==null){x+=jsonToXml(v,k)}else{x+="<"+k+">"+v+"</"+k+">"}}x+="</"+root+">";return x}
 function process(){try{const j=JSON.parse(document.getElementById("input").value);document.getElementById("output").value=jsonToXml(j)}catch(e){document.getElementById("output").value="Invalid JSON: "+e.message}}
   const v = document.getElementById('input').value;
